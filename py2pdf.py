@@ -10,7 +10,7 @@ FONT = "Microsoft YaHei"
 FONT_PATH = "C:\\Windows\\Fonts\\msyh.ttc"
 FONT_SIZE = 10
 LINE_HEIGHT = 14
-LINE_WIDTH = 80
+LINE_WIDTH = 110
 
 
 def python_to_pdf(input_file, output_file, header):
