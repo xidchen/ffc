@@ -2,15 +2,21 @@ import textwrap
 
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 
 
-FONT = "Courier"
+FONT = "Microsoft YaHei"
+FONT_PATH = "C:\\Windows\\Fonts\\msyh.ttc"
 FONT_SIZE = 10
 LINE_HEIGHT = 14
 LINE_WIDTH = 80
 
 
 def python_to_pdf(input_file, output_file, header):
+    # Register a font that supports Chinese characters
+    pdfmetrics.registerFont(TTFont(FONT, FONT_PATH))
+
     # Open the Python file
     with open(input_file, 'r', encoding='utf-8') as file:
         lines = file.readlines()
