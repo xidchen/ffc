@@ -57,9 +57,9 @@ def markdown_to_pdf(md_file, pdf_file, header):
     print(f"Converted {md_file} to {pdf_file}")
 
 # Specify the input Markdown file and the output PDF file
-markdown_file = "source/README.md"  # Replace with your Markdown file
-output_pdf = "README.pdf"  # Replace with the desired output file name
-page_header = "DMP数据筛选流水线软件 1.0"
+markdown_file = input("Input file path: ")  # Input your Markdown file path
+output_pdf = input("Output file path: ")  # Input your PDF file path
+page_header = input("Page header name: ")  # Input your desired PDF file name
 
 # Convert Markdown to PDF with header
 markdown_to_pdf(markdown_file, output_pdf, page_header)

@@ -75,9 +75,9 @@ def python_to_pdf(input_file, output_file, header):
 
 
 # Specify input and output files
-python_file = "source/cli.py"  # Replace with your Python file
-pdf_file = "target/cli.pdf"
-page_header = "DMP数据筛选流水线软件 1.0"   # Replace with desired PDF file name
+python_file = input("Input file path: ")  # Input your Python file path
+pdf_file = input("Output file path: ")  # Input your PDF file path
+page_header = input("Page header name: ")   # Input your desired PDF file name
 
 # Call the function
 python_to_pdf(python_file, pdf_file, page_header)
