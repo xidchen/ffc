@@ -19,6 +19,8 @@ def add_header_to_pdf(input_pdf_path, output_pdf_path, name):
     cjk_font_paths = [
         "/usr/share/fonts/truetype/arphic-gbsn00lp/gbsn00lp.ttf",
         "/usr/share/fonts/truetype/arphic-gkai00mp/gkai00mp.ttf",
+        "C:\\Windows\\Fonts\\msyh.ttc",
+        "C:\\Windows\\Fonts\\simsun.ttc",
     ]
 
     font_name = "CJKFont"
