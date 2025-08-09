@@ -4,11 +4,9 @@ import textwrap
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
-from pdf_fonts import register_cjk_font
 
-
-SRC_DIR = "vst_lite/src"
-OUT_DIR = "vst_lite/tgt"
+SRC_DIR = os.path.join("vst_lite", "src")
+OUT_DIR = os.path.join("vst_lite", "tgt")
 OUT_FILE = os.path.join(OUT_DIR, "软著代码.pdf")
 
 PAGE_SIZE = letter
@@ -21,7 +19,7 @@ LINE_SPACING = 1.15
 MIN_FONT_SIZE = 6
 MAX_FONT_SIZE = 14
 FONT_SCALE = 1.08
-FONT_NAME_CODE = register_cjk_font()
+FONT_NAME_CODE = "Courier"
 
 
 def gather_source_files(root):
