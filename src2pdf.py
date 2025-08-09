@@ -4,6 +4,8 @@ import textwrap
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
+from pdf_fonts import register_cjk_font
+
 
 SRC_DIR = "vst_lite/src"
 OUT_DIR = "vst_lite/tgt"
@@ -11,20 +13,15 @@ OUT_FILE = os.path.join(OUT_DIR, "软著代码.pdf")
 
 PAGE_SIZE = letter
 MARGIN_LEFT = 40
-MARGIN_RIGHT = 40
 MARGIN_TOP = 70
 MARGIN_BOTTOM = 50
-FONT_NAME_CODE = "Courier"
-FONT_SIZE_CODE = 8
-FONT_NAME_HEADER = "Helvetica-Bold"
-FONT_SIZE_HEADER = 10
-LINE_HEIGHT = 10  # vertical space per code line
-CHARS_PER_LINE = 100  # wrapping width in characters (not page-width)
-LINES_PER_PAGE = 54  # roughly 54 code lines per page
+CHARS_PER_LINE = 100
+LINES_PER_PAGE = 54
 LINE_SPACING = 1.15
 MIN_FONT_SIZE = 6
-MAX_FONT_SIZE = 14  # allow a bit larger font
-FONT_SCALE = 1.08  # small scale-up to make the font a little larger by default
+MAX_FONT_SIZE = 14
+FONT_SCALE = 1.08
+FONT_NAME_CODE = register_cjk_font()
 
 
 def gather_source_files(root):
@@ -37,7 +34,6 @@ def gather_source_files(root):
 
 
 def read_lines_no_blank(path):
-    # Read a file, skip blank lines
     raw = None
     lines = []
     for enc in ("utf-8", "latin-1"):
@@ -49,7 +45,7 @@ def read_lines_no_blank(path):
             raw = None
             continue
     if raw is None:
-        return []  # unreadable
+        return []
     for line in raw:
         if line.strip() == "":
             continue
