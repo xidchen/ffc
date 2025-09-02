@@ -5,10 +5,6 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
 
-SRC_DIR = os.path.join("vst_lite", "src")
-OUT_DIR = os.path.join("vst_lite", "tgt")
-OUT_FILE = os.path.join(OUT_DIR, "软著代码.pdf")
-
 PAGE_SIZE = letter
 MARGIN_LEFT = 40
 MARGIN_TOP = 70
@@ -106,15 +102,21 @@ def create_pdf(file_paths, out_pdf):
 
 
 def main():
-    if not os.path.isdir(SRC_DIR):
-        print(f"Source directory not found: {SRC_DIR}")
+    print("=== Source to PDF Converter ===")
+    src_dir = input("Enter the source directory path: ")
+    out_dir = input("Enter the output directory path: ")
+
+    out_file = os.path.join(out_dir, "软著代码.pdf")
+
+    if not os.path.isdir(src_dir):
+        print(f"Source directory not found: {src_dir}")
         return
-    ensure_out_dir(OUT_DIR)
-    files = gather_source_files(SRC_DIR)
+    ensure_out_dir(out_dir)
+    files = gather_source_files(src_dir)
     if not files:
         print("No files found in source directory.")
         return
-    create_pdf(files, OUT_FILE)
+    create_pdf(files, out_file)
 
 
 if __name__ == "__main__":
