@@ -61,5 +61,5 @@ markdown_file = input("Input file path: ")  # Input your Markdown file path
 output_pdf = input("Output file path: ")  # Input your PDF file path
 page_header = input("Page header name: ")  # Input your desired PDF file name
 
-# Convert Markdown to PDF with header
+# Convert Markdown to PDF with a header
 markdown_to_pdf(markdown_file, output_pdf, page_header)

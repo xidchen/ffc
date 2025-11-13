@@ -33,7 +33,7 @@ def remove_upper_left_header(
     try:
         doc = pymupdf.open(input_pdf_path)
         for page_num in range(len(doc)):
-            page = cast(PageProto, doc[page_num])
+            page: PageProto = cast(PageProto, cast(object, doc[page_num]))
             header_rect = pymupdf.Rect(0, 0, header_width, header_height)
             page.draw_rect(header_rect, color=(1, 1, 1), fill=(1, 1, 1))
             text_instances = page.get_text("dict")
@@ -74,7 +74,7 @@ def remove_upper_left_header_alternative(
     try:
         doc = pymupdf.open(input_pdf_path)
         for page_num in range(len(doc)):
-            page = cast(PageProto, doc[page_num])
+            page = cast(PageProto, cast(object, doc[page_num]))
             blocks = page.get_text("blocks")
             for block in blocks:
                 x0, y0, x1, y1 = block[:4]
