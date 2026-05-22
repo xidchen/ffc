@@ -75,6 +75,7 @@ def create_pdf(file_paths, out_pdf):
     line_count = 0  # lines written on the current page
 
     for path in file_paths:
+        print(f"Processing {path}...")
         lines = read_lines_no_blank(path)
         if not lines:
             # skip files with no non-blank lines
